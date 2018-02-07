@@ -1,0 +1,20 @@
+{
+  "name": "micro-stats",
+  "version": "1.0.0",
+  "description": "A tiny Node.js microservice to grab some stats from around the web.",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro",
+    "dev": "micro-dev"
+  },
+  "repository": "git@github.com:chasemccoy/micro-stats.git",
+  "author": "Chase McCoy <chasem000@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^8.0.3",
+    "micro": "^9.1.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^2.2.0"
+  }
+}
