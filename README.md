@@ -13,9 +13,10 @@ Deploying `micro-stats` is one click away:
 ## Usage
 
 **Available Endpoints:**
-* `/?type=weather`: Returns the current conditions for Chicago, IL.
-* `/?type=productivity`: Returns the productivity pulse score from RescueTime.
-* `/?type=nowPlaying`: Returns an object representing the current song playing from Spotify in the format `{name, artist, album}`.
+* `/weather`: Returns the current conditions for Chicago, IL.
+* `/productivity`: Returns the productivity pulse score from RescueTime.
+* `/nowPlaying`: Returns an object representing the current song playing from Spotify in the format `{name, artist, album}`.
+* `/age`: Returns my current age.
 
 
 ## Development

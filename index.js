@@ -12,9 +12,12 @@ const error = (res) => {
 }
 
 const weather = async () => {
-	const data = await getJSONResponse('https://api.darksky.net/forecast/47b4c46a2eba602b069144b4b6310e09/41.8781,87.6298')
+	const data = await getJSONResponse('https://api.darksky.net/forecast/47b4c46a2eba602b069144b4b6310e09/41.883,-87.6291')
 
-	return data.currently.summary
+	return {
+		summary: data.currently.summary,
+		temperature: `${data.currently.temperature}°`
+	}
 }
 
 const productivity = async () => {
@@ -35,18 +38,28 @@ const nowPlaying = async () => {
 	}
 }
 
+const age = async () => {
+	const dateOfBirth = new Date('1995-05-04 00:00:00')
+	const ageDifference = Date.now() - dateOfBirth.getTime()
+  const ageDate = new Date(ageDifference)
+  return `${Math.abs(ageDate.getUTCFullYear() - 1970)} years`
+}
+
 module.exports = async (req, res) => {
-  const { query: { type } } = parse(req.url, true)
+	res.setHeader('Access-Control-Allow-Origin', '*')
+  const { pathname } = parse(req.url, true)
 
-  if (!type) return error(res)
+  if (!pathname) return error(res)
 
-	switch (type) {
-		case 'weather':
+	switch (pathname) {
+		case '/weather':
 			return weather()
-		case 'productivity':
+		case '/productivity':
 			return productivity()
-		case 'nowPlaying':
+		case '/nowPlaying':
 			return nowPlaying()
+		case '/age':
+			return age()
 		default:
 			return error(res)
 	}

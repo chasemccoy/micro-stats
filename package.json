@@ -10,6 +10,10 @@
   "repository": "git@github.com:chasemccoy/micro-stats.git",
   "author": "Chase McCoy <chasem000@gmail.com>",
   "license": "MIT",
+  "now": {
+    "name": "micro-stats",
+    "alias": "chs-stats.now.sh"
+  },
   "dependencies": {
     "got": "^8.0.3",
     "micro": "^9.1.0"
