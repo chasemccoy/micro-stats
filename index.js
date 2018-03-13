@@ -38,6 +38,20 @@ const nowPlaying = async () => {
 	}
 }
 
+const beer = async () => {
+	const data = await getJSONResponse('https://api.untappd.com/v4/user/checkins/chasemccoy?client_id=E733A1F68516DE96F3B9DC9098F1634907662208&client_secret=1EC1F4DE9FEF6AAACD2FD8910CA190E61737CC96')
+
+	const checkins = data.response.checkins.items
+	const lastCheckin = checkins[0]
+	const beer = lastCheckin.beer.beer_name
+	const brewery = lastCheckin.brewery.brewery_name
+
+	return {
+		beer: beer,
+		brewery: brewery,
+	}
+}
+
 const age = async () => {
 	const dateOfBirth = new Date('1995-05-04 00:00:00')
 	const ageDifference = Date.now() - dateOfBirth.getTime()
@@ -60,6 +74,8 @@ module.exports = async (req, res) => {
 			return nowPlaying()
 		case '/age':
 			return age()
+		case '/beer':
+			return beer()
 		default:
 			return error(res)
 	}
