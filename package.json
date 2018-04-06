@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "micro",
-    "dev": "micro-dev"
+    "dev": "micro-dev",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write '*.js'"
   },
   "repository": "git@github.com:chasemccoy/micro-stats.git",
   "author": "Chase McCoy <chasem000@gmail.com>",
@@ -19,6 +20,7 @@
     "micro": "^9.1.0"
   },
   "devDependencies": {
-    "micro-dev": "^2.2.0"
+    "micro-dev": "^2.2.0",
+    "prettier": "^1.11.1"
   }
 }
