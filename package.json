@@ -6,6 +6,7 @@
   "scripts": {
     "start": "micro",
     "dev": "micro-dev",
+    "deploy": "now && now alias && now rm micro-stats --safe --yes",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write '*.js'"
   },
   "repository": "git@github.com:chasemccoy/micro-stats.git",

@@ -15,7 +15,8 @@ Deploying `micro-stats` is one click away:
 **Available Endpoints:**
 * `/weather`: Returns the current conditions for Chicago, IL in the format `{summary, temperature}`.
 * `/productivity`: Returns the productivity pulse score from RescueTime.
-* `/nowPlaying`: Returns an object representing the current song playing from Spotify in the format `{name, artist, album}`.
+* `/nowPlaying`: Returns an object representing the current track playing from Spotify in the format `{name, artist, album}`.
+* `/recentTracks`: Returns an array of objects representing recently played tracks from Spotify in the format `{name, artist, album}`.
 * `/beer`: Returns information about the last beer I drank from Untappd in the format `{beer, brewery}`.
 * `/age`: Returns my current age.
 
