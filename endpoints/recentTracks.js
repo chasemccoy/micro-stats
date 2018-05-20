@@ -11,7 +11,8 @@ const recentTracks = async function() {
     {
       name: track.name,
       artist: track.artist['#text'],
-      album: track.album['#text']
+      album: track.album['#text'],
+      image: track.image[2]['#text']
     }
   )).filter((track, index, array) =>
     index === array.findIndex((item) => (
