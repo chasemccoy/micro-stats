@@ -6,22 +6,20 @@
   "scripts": {
     "start": "micro",
     "dev": "micro-dev",
-    "deploy": "now && now alias && now rm micro-stats --safe --yes",
+    "deploy": "now && now alias",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write '*.js'"
   },
   "repository": "git@github.com:chasemccoy/micro-stats.git",
   "author": "Chase McCoy <chasem000@gmail.com>",
   "license": "MIT",
-  "now": {
-    "name": "micro-stats",
-    "alias": "chs-stats.now.sh"
-  },
   "dependencies": {
-    "got": "^8.0.3",
-    "micro": "^9.1.0"
+    "dotenv": "^6.2.0",
+    "micro": "^9.3.3",
+    "node-fetch": "^2.3.0",
+    "now-micro": "^0.3.0"
   },
   "devDependencies": {
-    "micro-dev": "^2.2.0",
-    "prettier": "^1.11.1"
+    "micro-dev": "^3.0.0",
+    "prettier": "^1.15.3"
   }
 }

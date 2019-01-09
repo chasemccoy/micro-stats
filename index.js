@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { parse } = require('url')
 const { error } = require('./utils')
 const weather = require('./endpoints/weather')
@@ -6,6 +7,7 @@ const nowPlaying = require('./endpoints/nowPlaying')
 const recentTracks = require('./endpoints/recentTracks')
 const beer = require('./endpoints/beer')
 const age = require('./endpoints/age')
+const feedbin = require('./endpoints/feedbin')
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -26,6 +28,8 @@ module.exports = async (req, res) => {
       return age()
     case '/beer':
       return beer()
+    case '/feedbin':
+      return feedbin()
     default:
       return error(res)
   }

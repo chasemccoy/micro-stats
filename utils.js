@@ -1,14 +1,24 @@
-const got = require('got')
 const { send } = require('micro')
+const fetch = require('node-fetch')
 
-const getJSONResponse = async function(url) {
-	const { body: response } = await got(url, { json: true })
-  return response
+const getJSONResponse = async function(url, authentication) {
+  var headers = new fetch.Headers()
+  if (authentication) {
+    headers.set(
+      'Authorization',
+      'Basic ' +
+        Buffer.from(
+          authentication.username + ':' + authentication.password
+        ).toString('base64')
+    )
+  }
+
+  const res = await fetch(url, authentication && { headers: headers })
+  return await res.json()
 }
 
 const error = function(res) {
-	send(res, 400, 'Plase specify a type of data to retrieve.')
+  send(res, 400, 'Plase specify a type of data to retrieve.')
 }
 
-
-module.exports = {getJSONResponse, error}
+module.exports = { getJSONResponse, error }

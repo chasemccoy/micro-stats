@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "alias": "chs-stats",
+  "builds": [{ "src": "index.js", "use": "now-micro" }],
+  "routes": [
+    { "src": "/.*", "dest": "index.js" }
+  ],
+  "env": {
+    "FEEDBIN_USER": "@feedbin-user",
+    "FEEDBIN_PASSWORD": "@feedbin-password"
+  }
+}
