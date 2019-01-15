@@ -29,7 +29,7 @@ const hyperlistLinks = async function() {
   const promises = results.map(async (result) => {
     const url = result.entities.urls[0].expanded_url
 
-    const response = await getJSONResponse(`https://micro-open-graph-dflhcofhmo.now.sh/?url=${url}`)
+    const response = await getJSONResponse(`https://chs-open-graph.now.sh/?url=${url}`)
 
     return (
       {
