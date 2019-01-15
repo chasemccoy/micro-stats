@@ -14,11 +14,8 @@ const getTweets = async (endpoint, options) => {
 
 const hyperlistLinks = async function() {
   let results = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy'})
-
   const maxID = results[results.length - 1].id
-
   const moreResults = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy'})
-
   results = [...results, ...moreResults]
 
   results = results.filter(result => 
@@ -28,20 +25,20 @@ const hyperlistLinks = async function() {
 
   const promises = results.map(async (result) => {
     const url = result.entities.urls[0].expanded_url
-
     const response = await getJSONResponse(`https://chs-open-graph.now.sh/?url=${url}`)
 
     return (
       {
         title: response.title,
         url: url,
-        description: response.description
+        description: response.description,
+        twitter_id: result.id_str,
+        twitter_username: result.user.screen_name
       }
     )
   })
 
   results = await Promise.all(promises)
-
   return results
 }
 
