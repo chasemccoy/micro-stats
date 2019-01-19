@@ -14,7 +14,12 @@ const getJSONResponse = async function(url, authentication) {
   }
 
   const res = await fetch(url, authentication && { headers: headers })
-  return await res.json()
+  
+  try {
+    return await res.json()
+  } catch (error) {
+    return null
+  }
 }
 
 const error = function(res) {

@@ -29,9 +29,9 @@ const hyperlistLinks = async function() {
 
     return (
       {
-        title: response.title,
+        title: response ? response.title : undefined,
         url: url,
-        description: response.description,
+        description: response ? response.description : undefined,
         twitter_id: result.id_str,
         twitter_username: result.user.screen_name
       }
