@@ -25,7 +25,13 @@ const hyperlistLinks = async function() {
 
   const promises = results.map(async (result) => {
     const url = result.entities.urls[0].expanded_url
-    const response = await getJSONResponse(`https://chs-open-graph.now.sh/?url=${url}`)
+    let response = null
+
+    try {
+      response = await getJSONResponse(`https://chs-open-graph.now.sh/?url=${url}`)
+    } catch (error) {
+      console.error(error)
+    }
 
     return (
       {
