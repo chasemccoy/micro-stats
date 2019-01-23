@@ -13,17 +13,26 @@ const getJSONResponse = async function(url, authentication) {
     )
   }
 
-  const res = await fetch(url, authentication && { headers: headers })
-
   console.log('fetching...')
+  var start = Date.now();
+
+  const res = await fetch(url, authentication && { headers: headers })
+  console.log('fetch done!')
+  console.log('Fetch took', Date.now() - start, 'ms'); 
 
   if (res.ok) {
     try {
       console.log('converting to json...')
-      return await res.json()
+      console.log('getting text...')
+      const text = await res.text()
+      console.log('got the text, gonna parse it...')
+      var start = Date.now();
+      const json = JSON.parse(text)
+      console.log('parsed it to JSON!')
+      console.log('Took', Date.now() - start, 'ms');
+      return json
     } catch (error) {
       console.error(error)
-      return null
     }
   }
 
