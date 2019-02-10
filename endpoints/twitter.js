@@ -15,7 +15,7 @@ const getTweets = async (endpoint, options) => {
 const hyperlistLinks = async function() {
   let results = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy'})
   const maxID = results[results.length - 1].id
-  const moreResults = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy'})
+  const moreResults = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy', max_id: maxID})
   results = [...results, ...moreResults]
 
   results = results.filter(result => 
