@@ -45,6 +45,7 @@ const hyperlistLinks = async function() {
   })
 
   results = await Promise.all(promises)
+  console.log(results)
   return JSON.stringify(results)
 }
 
