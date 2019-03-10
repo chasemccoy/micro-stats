@@ -12,7 +12,7 @@ const getTweets = async (endpoint, options) => {
   return await client.get(endpoint, {...options, count: 200, tweet_mode: 'extended'})
 }
 
-const hyperlistLinks = async function() {
+exports.hyperlistLinks = async function() {
   let results = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy'})
   const maxID = results[results.length - 1].id
   const moreResults = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy', max_id: maxID})
@@ -45,8 +45,16 @@ const hyperlistLinks = async function() {
   })
 
   results = await Promise.all(promises)
-  console.log(results)
   return JSON.stringify(results)
 }
 
-module.exports = hyperlistLinks
+exports.latestTweet = async function() {
+  let results = await getTweets('statuses/user_timeline', {screen_name: 'chase_mccoy'})
+
+  results = results.filter(result => 
+    result.in_reply_to_status_id === null &&
+    result.entities.urls.length === 0
+  )
+
+  return results[0].full_text
+}

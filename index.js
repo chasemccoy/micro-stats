@@ -8,7 +8,7 @@ const recentTracks = require('./endpoints/recentTracks')
 const beer = require('./endpoints/beer')
 const age = require('./endpoints/age')
 const feedbin = require('./endpoints/feedbin')
-const hyperlistLinks = require('./endpoints/twitter')
+const { hyperlistLinks, latestTweet } = require('./endpoints/twitter')
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -33,6 +33,8 @@ module.exports = async (req, res) => {
       return feedbin()
     case '/hyperlist':
       return hyperlistLinks()
+    case '/latestTweet':
+      return latestTweet()
     default:
       return error(res)
   }
