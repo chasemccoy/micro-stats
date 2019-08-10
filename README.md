@@ -19,6 +19,8 @@ Deploying `micro-stats` is one click away:
 * `/recentTracks`: Returns an array of objects representing recently played tracks from Spotify in the format `{name, artist, album, image}`.
 * `/beer`: Returns information about the last beer I drank from Untappd in the format `{beer, brewery}`.
 * `/age`: Returns my current age.
+* `/feedbin`: Returns an array of recent unread entries from my Feedbin account.
+* `/latestTweet`: Returns the text of my latest non-reply tweet that does not contain a URL.
 
 
 ## Development
@@ -29,8 +31,3 @@ yarn run dev
 ```
 
 The local server address will be pasted to your clipboard.
-
-
-## License
-
-Copyright (c) 2017 Chase McCoy, licensed under the MIT license. See [LICENSE](LICENSE) for more information.
