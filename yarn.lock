@@ -2,16 +2,24 @@
 # yarn lockfile v1
 
 
-"@now/node-bridge@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-0.1.9.tgz#30ed2d137e4cd93af908f8ec528595d20d0c3889"
+"@now/node-bridge@^1.1.4":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@now/node-bridge/-/node-bridge-1.2.3.tgz#1e632e99a85ec55282fd968490dde136efd20ec1"
+  integrity sha512-OsFCwK6dTO01fXivSo2qrRlr5r7rDg3StPRNxFiC6a9unNJvhQ3Ir7O9T3mcy3oHONBRuTK/UOTq3u1C71DiYQ==
 
-"@now/node@^0.4.27":
-  version "0.4.27"
-  resolved "https://registry.yarnpkg.com/@now/node/-/node-0.4.27.tgz#c53ef9c9a37d5ce88f653bc30d5e8bce5254a5d7"
+"@now/node@^0.7.2":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@now/node/-/node-0.7.4.tgz#3bb3966cd60f1d7220cf71e9e9b6faeb7de431be"
+  integrity sha512-2bK0HO1M2VvTyx7LSLlDqUsIIZQdE2WwFVCOGR0gcOeZhlBEVW1oM6Yj2ZjRoYF/icbbUi+jvRm6Z8ME3lptcg==
   dependencies:
-    "@now/node-bridge" "^0.1.9"
+    "@now/node-bridge" "^1.1.4"
+    "@zeit/ncc" "0.18.5"
     fs-extra "7.0.1"
+
+"@zeit/ncc@0.18.5":
+  version "0.18.5"
+  resolved "https://registry.yarnpkg.com/@zeit/ncc/-/ncc-0.18.5.tgz#5687df6c32f1a2e2486aa110b3454ccebda4fb9c"
+  integrity sha512-F+SbvEAh8rchiRXqQbmD1UmbePY7dCOKTbvfFtbVbK2xMH/tyri5YKfNxXKK7eL9EWkkbqB3NTVQO6nokApeBA==
 
 abbrev@1:
   version "1.1.1"
@@ -534,6 +542,15 @@ fs-extra@7.0.1:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
+fs-extra@^8.0.1:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
+  integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
 fs-minipass@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/fs-minipass/-/fs-minipass-1.2.5.tgz#06c277218454ec288df77ada54a03b8702aacb9d"
@@ -605,6 +622,11 @@ graceful-fs@^4.1.2:
 graceful-fs@^4.1.6:
   version "4.1.15"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
+
+graceful-fs@^4.2.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.1.tgz#1c1f0c364882c868f5bff6512146328336a11b1d"
+  integrity sha512-b9usnbDGnD928gJB3LrCmxoibr3VE4U2SMo5PBuBnokWyDADTqDPXg4YpwKF1trpH+UbGp7QLicO3+aWEy0+mw==
 
 has-flag@^2.0.0:
   version "2.0.0"
@@ -1070,11 +1092,13 @@ normalize-path@^2.1.1:
   dependencies:
     remove-trailing-separator "^1.0.1"
 
-now-micro@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/now-micro/-/now-micro-0.3.0.tgz#34a53d258a7661dcc8a6a29f0349a6ad85d0fc73"
+now-micro@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/now-micro/-/now-micro-0.4.0.tgz#2d3001f40c6cd223173718ce1a0edde9d2161155"
+  integrity sha512-frka8LEC/s784hqELtoQJzbgBo1JUj4hBW5/h6SUeAtQEHjDvKIObhfY2rXqChhZF7ZnU4LrDLNg0aXMqaMf0Q==
   dependencies:
-    "@now/node" "^0.4.27"
+    "@now/node" "^0.7.2"
+    fs-extra "^8.0.1"
 
 npm-bundled@^1.0.1:
   version "1.0.5"
@@ -1219,9 +1243,10 @@ posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
 
-prettier@^1.15.3:
-  version "1.15.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.15.3.tgz#1feaac5bdd181237b54dbe65d874e02a1472786a"
+prettier@^1.18.2:
+  version "1.18.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.18.2.tgz#6823e7c5900017b4bd3acf46fe9ac4b4d7bda9ea"
+  integrity sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw==
 
 pretty-error@2.1.1:
   version "2.1.1"

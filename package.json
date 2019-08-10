@@ -16,7 +16,7 @@
     "dotenv": "^6.2.0",
     "micro": "^9.3.3",
     "node-fetch": "^2.3.0",
-    "now-micro": "^0.3.0",
+    "now-micro": "^0.4.0",
     "twitter-lite": "^0.9.0"
   },
   "devDependencies": {
