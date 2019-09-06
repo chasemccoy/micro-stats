@@ -13,6 +13,11 @@ const getTweets = async (endpoint, options) => {
 }
 
 exports.hyperlistLinks = async function() {
+  console.log(process.env.TWITTER_CONSUMER_KEY)
+  console.log(process.env.TWITTER_CONSUMER_SECRET)
+  console.log(process.env.TWITTER_ACCESS_TOKEN_KEY)
+  console.log(process.env.TWITTER_ACCESS_TOKEN_SECRET)
+
   let results = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy'})
   const maxID = results[results.length - 1].id
   const moreResults = await getTweets('lists/statuses', {slug: 'hyperlist', owner_screen_name: 'chase_mccoy', max_id: maxID})
