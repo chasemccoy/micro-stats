@@ -1,18 +1,15 @@
 {
   "version": 2,
   "alias": "chs-stats",
-  "builds": [{ "src": "index.js", "use": "now-micro" }],
   "routes": [
-    { "src": "/.*", "dest": "index.js" }
+    { "src": "/.*", "dest": "api/index.js" }
   ],
-  "build": {
-    "env": {
-      "FEEDBIN_USER": "@feedbin-user",
-      "FEEDBIN_PASSWORD": "@feedbin-password",
-      "TWITTER_CONSUMER_KEY": "@twitter-consumer-key",
-      "TWITTER_CONSUMER_SECRET": "@twitter-consumer-secret",
-      "TWITTER_ACCESS_TOKEN_KEY": "@twitter-access-token-key",
-      "TWITTER_ACCESS_TOKEN_SECRET": "@twitter-access-token-secret"
-    }
+  "env": {
+    "FEEDBIN_USER": "@feedbin-user",
+    "FEEDBIN_PASSWORD": "@feedbin-password",
+    "TWITTER_CONSUMER_KEY": "@twitter-consumer-key",
+    "TWITTER_CONSUMER_SECRET": "@twitter-consumer-secret",
+    "TWITTER_ACCESS_TOKEN_KEY": "@twitter-access-token-key",
+    "TWITTER_ACCESS_TOKEN_SECRET": "@twitter-access-token-secret"
   }
 }
