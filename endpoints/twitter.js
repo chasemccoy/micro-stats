@@ -33,11 +33,14 @@ exports.hyperlistLinks = async function() {
       console.error(error)
     }
 
+    const tweetText = result.full_text === "" ? undefined : result.full_text
+    const description = (response && response.description !== "") ? response.description : undefined
+
     return (
       {
         title: response ? response.title : undefined,
         url: url,
-        description: response ? response.description : undefined,
+        description: description || tweetText,
         twitter_id: result.id_str,
         twitter_username: result.user.screen_name
       }
